@@ -1,5 +1,7 @@
 <% content_for :head do %>
   <%= javascript_import_module_tag "hello_world" %>
+  <%= javascript_import_module_tag "d3" %>
+  <%= javascript_import_module_tag "d3-funky" %>
 <% end %>
 <div class="container">
 <h1>Willkommen bei <%= t("application_name_html") %></h1>
@@ -23,3 +25,15 @@
   Wir entwickeln Webseiten.
 </p>
 </div>
+
+<div class="funky_button1">
+
+</div>
+
+<script text="javascript">
+  $( document ).ready(function() {
+    var funky_button = new d3Funky.funkyButton("funky_button1", {pitch: "text", cta: "text2"});
+    funky_button.draw_chart();
+  });
+
+</script>
