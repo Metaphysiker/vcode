@@ -1,7 +1,7 @@
 <% content_for :head do %>
-  <%= javascript_import_module_tag "hello_world" %>
+  <%#= javascript_import_module_tag "hello_world" %>
+  <%= javascript_import_module_tag "jquery" %>
   <%= javascript_import_module_tag "d3" %>
-  <%= javascript_import_module_tag "d3-funky" %>
 <% end %>
 <div class="container">
 <h1>Willkommen bei <%= t("application_name_html") %></h1>
@@ -30,10 +30,23 @@
 
 </div>
 
-<script text="javascript">
+<div id="funky_button1_pitch" style="width: 80%; visibility: hidden;" class="text-center">
+  <p>
+    Text
+  </p>
+</div>
+
+<div id="funky_button1_cta" style="width: 50%; visibility: hidden;" class="text-center">
+  <button type="button" class="button2">Text</button>
+</div>
+
+<script type="module" text="javascript">
+  import * as d3 from "d3"
+  import * as d3Funky from "d3-funky"
+
+  console.log("epicness");
   $( document ).ready(function() {
-    var funky_button = new d3Funky.funkyButton("funky_button1", {pitch: "text", cta: "text2"});
+    var funky_button = new d3Funky.funkyButton("funky_button1", {pitch: "<%= @pitch %>", cta: "<%= @cta %>"});
     funky_button.draw_chart();
   });
-
 </script>
