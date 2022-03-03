@@ -6,6 +6,6 @@ export default class extends Controller {
   greet() {
     this.outputTarget.textContent =
       `Hello, ${this.nameTarget.value}!`
-    console.log($);
+    console.log(this.outputTarget);
   }
 }
