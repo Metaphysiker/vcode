@@ -1,4 +1,4 @@
-console.log("HELLO WOOORLD!");
+console.log("done");
 $( document ).ready(function() {
   console.log( "inside file!" );
 });
