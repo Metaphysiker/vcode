@@ -1,4 +1,3 @@
-import * as d3 from "d3"
 
 export function funkyButton(container_name, data) {
   this.container_name = container_name;

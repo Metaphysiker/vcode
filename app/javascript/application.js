@@ -4,3 +4,7 @@ import "controllers"
 import jQuery from 'jquery'
 window.$ = jQuery;
 import "bootstrap"
+import * as d3 from "d3"
+window.d3 = d3;
+import * as d3Funky from "d3-funky"
+window.d3Funky = d3Funky;

@@ -6,6 +6,16 @@ export default class extends Controller {
   greet() {
     this.outputTarget.textContent =
       `Hello, ${this.nameTarget.value}!`
+    console.log(typeof this.outputTarget);
+  }
+
+  startAnimation() {
+    var funky_button = new d3Funky.funkyButton("funky_button1", {pitch: "pitch", cta: "cta"});
+    funky_button.draw_chart();
+
+    this.outputTarget.textContent =
+      `Hello, ${this.nameTarget.value}!`
     console.log(this.outputTarget);
   }
+
 }
