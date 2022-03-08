@@ -8,3 +8,5 @@ import * as d3 from "d3"
 window.d3 = d3;
 import * as d3Funky from "d3-funky"
 window.d3Funky = d3Funky;
+import * as createWebsiteAnimation from "create_website_animation"
+window.createWebsiteAnimation = createWebsiteAnimation;

@@ -8,16 +8,11 @@
 <p>
   Wie können wir Ihnen helfen?
 </p>
-<div data-controller="createwebsite">
-  <input data-createwebsite-target="name" type="text">
-
-  <button data-action="click->createwebsite#startAnimation">
-    Greet
+<div data-controller="create-website-animation">
+  <button data-action="mouseover->create-website-animation#draw mouseout->create-website-animation#empty">
+    Draw
   </button>
-
-  <span data-createwebsite-target="output">
-  </span>
-  <div class="funky_button1">
+  <div class="funky_button1 border">
 
   </div>
 </div>
