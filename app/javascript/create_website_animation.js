@@ -11,7 +11,7 @@ export function createWebsiteAnimation(container_name) {
     var margin = {top: 50, right: 50, bottom: 50, left: 50};
     var width = $(this.container_class).width() - margin.left - margin.right;
     //var height = (this.data.length * 100) + 100 - margin.top - margin.bottom;
-    let height = 500;
+    let height = $(this.container_class).height();
 
     // append the svg object to the body of the page
      const svg = d3.select(this.container_class)
@@ -25,7 +25,7 @@ export function createWebsiteAnimation(container_name) {
          .attr("x", -width/2)
          .attr("y", 0)
          .attr('width', width)
-         .attr('height', height/1.5)
+         .attr('height', height)
          .attr('stroke', 'black')
          .attr('fill', '#69a3b2');
 
