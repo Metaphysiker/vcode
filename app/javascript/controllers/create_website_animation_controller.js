@@ -4,8 +4,12 @@ const create_website_animation = new createWebsiteAnimation.createWebsiteAnimati
 export default class extends Controller {
   static targets = [ "name", "output" ]
 
+  connect() {
+    this.draw();
+  }
+
   draw() {
-    event.stopImmediatePropagation();
+    //event.stopImmediatePropagation();
     console.log("draw");
     create_website_animation.draw();
   }
