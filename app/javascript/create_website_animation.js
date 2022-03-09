@@ -13,7 +13,7 @@ export function createWebsiteAnimation(container_name) {
     //var height = (this.data.length * 100) + 100 - margin.top - margin.bottom;
     let height = width;
 
-    let box = {width: width/2, height: width/2};
+    let box = {width: width/1.2, height: width/1.2};
 
     // append the svg object to the body of the page
      const svg = d3.select(this.container_class)
@@ -55,7 +55,7 @@ export function createWebsiteAnimation(container_name) {
                   .duration(1000)
                   .attr("x", box.width/10)
                   .attr("y", box.height/100 * 15)
-                  .on("end", function() {append_boxes()});
+                  .on("end", function() {append_boxes(); rotate_svg();});
         }
 
         function append_boxes() {
@@ -74,6 +74,17 @@ export function createWebsiteAnimation(container_name) {
             .attr('height', box.height/100 * 15)
             .attr("rx", 10)
             .attr('fill', 'white');
+        }
+
+        function rotate_svg() {
+          website_screen.transition()
+            .duration(1000)
+            .attrTween('transform', function() {
+              return d3.interpolateString('translate(0,0) rotate(0)',
+                                'translate(0,0)' +
+                                'rotate(' + 5 * 1.8 + ', 63, 54.77)');
+                      });
+
         }
 
 
