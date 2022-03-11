@@ -47,6 +47,7 @@ export function createWebsiteAnimation(container_name) {
             .attr("x", 0)
             .attr("y", 0)
             .text("Your Website")
+            .style("font-size", "26px")
             .transition()
                   .duration(1000)
                   .attr("x", box.width/10)
@@ -92,6 +93,14 @@ export function createWebsiteAnimation(container_name) {
               .duration(1000)
               .attr('width', box.width/100 * 20)
               .attr('height', box.height/100 * 10);
+        }
+
+        function promise_template(){
+          return new Promise(function(resolve, reject)
+          {
+            $(".chat-buttons-parent").empty();
+            resolve();
+          });
         }
 
         function rotate_svg() {
