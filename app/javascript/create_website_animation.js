@@ -42,10 +42,6 @@ export function createWebsiteAnimation(container_name) {
         .attr("fill", "#69a3b2")
         .on("end", function() {append_title()});
 
-        function myFunction(p1) {
-          console.log(p1)
-        }
-
         function append_title() {
           website_screen.append("text")
             .attr("x", 0)
@@ -80,7 +76,7 @@ export function createWebsiteAnimation(container_name) {
           website_screen.transition()
             .duration(1000)
             .attrTween('transform', function() {
-              return d3.interpolateString('translate(0,0) rotate(0)',
+              return d3.interpolateString('translate(-100,100) rotate(0)',
                                 'translate(0,0)' +
                                 'rotate(' + 5 * 1.8 + ', 63, 54.77)');
                       });
