@@ -13,7 +13,7 @@ export function createWebsiteAnimation(container_name) {
     //var height = (this.data.length * 100) + 100 - margin.top - margin.bottom;
     let height = width;
 
-    let box = {width: width/1.2, height: width/1.2};
+    let box = {width: width/1.5, height: width/1.5};
 
     // append the svg object to the body of the page
      const svg = d3.select(this.container_class)
@@ -21,7 +21,7 @@ export function createWebsiteAnimation(container_name) {
        .attr("width", width)
        .attr("height", height)
        .append("g")
-       .attr("transform", `translate(${width/2}, ${0})`);
+       .attr("transform", `translate(${width/2}, ${margin.top})`);
 
 
     const website_screen = svg.append('g')
@@ -51,25 +51,47 @@ export function createWebsiteAnimation(container_name) {
                   .duration(1000)
                   .attr("x", box.width/10)
                   .attr("y", box.height/100 * 15)
-                  .on("end", function() {append_boxes(); rotate_svg();});
+                  .on("end", function() {append_boxes(); append_button(); rotate_svg();});
         }
 
         function append_boxes() {
           website_screen.append('rect')
             .attr("x", box.width/100 * 10)
             .attr("y", box.height/100 * 20)
-            .attr('width', box.width/100 * 80)
-            .attr('height', box.height/100 * 15)
+            .attr('width', 0)
+            .attr('height', 0)
             .attr("rx", 10)
-            .attr('fill', 'white');
+            .attr('fill', 'white')
+            .transition()
+              .duration(1000)
+              .attr('width', box.width/100 * 80)
+              .attr('height', box.height/100 * 15);
 
           website_screen.append('rect')
             .attr("x", box.width/100 * 10)
             .attr("y", box.height/100 * 40)
-            .attr('width', box.width/100 * 80)
-            .attr('height', box.height/100 * 15)
+            .attr('width', 0)
+            .attr('height', 0)
             .attr("rx", 10)
-            .attr('fill', 'white');
+            .attr('fill', 'white')
+            .transition()
+              .duration(1000)
+              .attr('width', box.width/100 * 80)
+              .attr('height', box.height/100 * 15);
+        }
+
+        function append_button() {
+          website_screen.append('rect')
+            .attr("x", box.width/100 * 50)
+            .attr("y", box.height/100 * 80)
+            .attr('width', 0)
+            .attr('height', 0)
+            .attr("rx", 10)
+            .attr('fill', 'white')
+            .transition()
+              .duration(1000)
+              .attr('width', box.width/100 * 20)
+              .attr('height', box.height/100 * 10);
         }
 
         function rotate_svg() {
