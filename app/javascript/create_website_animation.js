@@ -74,11 +74,10 @@ export function createWebsiteAnimation(container_name) {
 
         function rotate_svg() {
           website_screen.transition()
-            .duration(1000)
+            .duration(750)
             .attrTween('transform', function() {
-              return d3.interpolateString('translate(-100,100) rotate(0)',
-                                'translate(0,0)' +
-                                'rotate(' + 5 * 1.8 + ', 63, 54.77)');
+              return d3.interpolateString(`translate(${-box.width/2}, ${0}) rotate(0)`,
+                                          `translate(${-box.width/2}, ${25}) rotate(-10, ${box.width/2}, ${box.height/2})`);
                       });
 
         }
