@@ -32,7 +32,6 @@ export function createWebsiteAnimation(container_name) {
       .attr("y", 0)
       .attr('width', 0)
       .attr('height', 0)
-      .attr("rx", 10)
       //.attr('stroke', 'black')
       .attr('fill', 'white')
       .transition()
@@ -40,18 +39,35 @@ export function createWebsiteAnimation(container_name) {
         .attr('width', box.width)
         .attr('height', box.height)
         .attr("fill", "#69a3b2")
-        .on("end", function() {append_title()});
+        .on("end", function() {append_navigation()});
+
+      function append_navigation() {
+
+        website_screen.append('rect')
+          .attr("x", 0)
+          .attr("y", 0)
+          .attr('width', 0)
+          .attr('height', 0)
+          .attr('fill', 'gray')
+          .transition()
+            .duration(1000)
+            .attr('width', box.width/100 * 100)
+            .attr('height', box.height/100 * 7.5)
+            .on("end", function() {append_boxes(); append_button();});
+
+      }
+
 
         function append_title() {
           website_screen.append("text")
             .attr("x", 0)
             .attr("y", 0)
-            .text("Your Website")
+            .text("Meine Webseite")
             .transition()
                   .duration(1000)
                   .attr("x", box.width/10)
                   .attr("y", box.height/100 * 15)
-                  .on("end", function() {append_boxes(); append_button(); rotate_svg();});
+                  .on("end", function() {append_boxes(); append_button();});
         }
 
         function append_boxes() {
