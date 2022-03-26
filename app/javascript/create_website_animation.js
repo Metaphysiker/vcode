@@ -39,9 +39,9 @@ export function createWebsiteAnimation(container_name) {
         .attr('width', box.width)
         .attr('height', box.height)
         .attr("fill", "#69a3b2")
-        .on("end", function() {append_navigation()});
+        .on("end", function() {append_navigation_bar()});
 
-      function append_navigation() {
+      function append_navigation_bar() {
 
         website_screen.append('rect')
           .attr("x", 0)
@@ -53,8 +53,46 @@ export function createWebsiteAnimation(container_name) {
             .duration(1000)
             .attr('width', box.width/100 * 100)
             .attr('height', box.height/100 * 7.5)
-            .on("end", function() {append_boxes(); append_button();});
+            .on("end", function() {append_toggler_icon();});
 
+      }
+
+      function append_toggler_icon() {
+
+        website_screen.append('rect')
+          .attr("x", box.width/100 * 90)
+          .attr("y", box.height/100 * 1.5)
+          .attr('width', 0)
+          .attr('height', 0)
+          .attr('fill', 'white')
+          .transition()
+            .duration(1000)
+            .attr('width', box.width/100 * 5)
+            .attr('height', box.height/100 * 0.75);
+
+        website_screen.append('rect')
+          .attr("x", box.width/100 * 90)
+          .attr("y", box.height/100 * 3.5)
+          .attr('width', 0)
+          .attr('height', 0)
+          .attr('fill', 'white')
+          .transition()
+            .duration(1500)
+            .attr('width', box.width/100 * 5)
+            .attr('height', box.height/100 * 0.75);
+
+
+      website_screen.append('rect')
+        .attr("x", box.width/100 * 90)
+        .attr("y", box.height/100 * 5.5)
+        .attr('width', 0)
+        .attr('height', 0)
+        .attr('fill', 'white')
+        .transition()
+          .duration(2000)
+          .attr('width', box.width/100 * 5)
+          .attr('height', box.height/100 * 0.75)
+          .on("end", function() {append_boxes(); append_button();});;
       }
 
 
