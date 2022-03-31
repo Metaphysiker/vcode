@@ -32,7 +32,6 @@ export function createWebsiteAnimation(container_name) {
       .attr("y", 0)
       .attr('width', 0)
       .attr('height', 0)
-      .attr("rx", 10)
       //.attr('stroke', 'black')
       .attr('fill', 'white')
       .transition()
@@ -40,19 +39,73 @@ export function createWebsiteAnimation(container_name) {
         .attr('width', box.width)
         .attr('height', box.height)
         .attr("fill", "#69a3b2")
-        .on("end", function() {append_title()});
+        .on("end", function() {append_navigation_bar()});
+
+      function append_navigation_bar() {
+
+        website_screen.append('rect')
+          .attr("x", 0)
+          .attr("y", 0)
+          .attr('width', 0)
+          .attr('height', 0)
+          .attr('fill', 'gray')
+          .transition()
+            .duration(1000)
+            .attr('width', box.width/100 * 100)
+            .attr('height', box.height/100 * 7.5)
+            .on("end", function() {append_toggler_icon();});
+
+      }
+
+      function append_toggler_icon() {
+
+        website_screen.append('rect')
+          .attr("x", box.width/100 * 90)
+          .attr("y", box.height/100 * 1.5)
+          .attr('width', 0)
+          .attr('height', 0)
+          .attr('fill', 'white')
+          .transition()
+            .duration(1000)
+            .attr('width', box.width/100 * 5)
+            .attr('height', box.height/100 * 0.75);
+
+        website_screen.append('rect')
+          .attr("x", box.width/100 * 90)
+          .attr("y", box.height/100 * 3.5)
+          .attr('width', 0)
+          .attr('height', 0)
+          .attr('fill', 'white')
+          .transition()
+            .duration(1500)
+            .attr('width', box.width/100 * 5)
+            .attr('height', box.height/100 * 0.75);
+
+
+      website_screen.append('rect')
+        .attr("x", box.width/100 * 90)
+        .attr("y", box.height/100 * 5.5)
+        .attr('width', 0)
+        .attr('height', 0)
+        .attr('fill', 'white')
+        .transition()
+          .duration(2000)
+          .attr('width', box.width/100 * 5)
+          .attr('height', box.height/100 * 0.75)
+          .on("end", function() {append_boxes(); append_button();});;
+      }
+
 
         function append_title() {
           website_screen.append("text")
             .attr("x", 0)
             .attr("y", 0)
-            .text("Your Website")
-            .style("font-size", "26px")
+            .text("Meine Webseite")
             .transition()
                   .duration(1000)
                   .attr("x", box.width/10)
                   .attr("y", box.height/100 * 15)
-                  .on("end", function() {append_boxes(); append_button(); rotate_svg();});
+                  .on("end", function() {append_boxes(); append_button();});
         }
 
         function append_boxes() {
