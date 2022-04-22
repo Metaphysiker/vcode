@@ -92,18 +92,20 @@ export function createWebsiteAnimation(container_name) {
           .duration(2000)
           .attr('width', box.width/100 * 5)
           .attr('height', box.height/100 * 0.75)
-          .on("end", function() {append_boxes(); append_button();});;
+          .on("end", function() {append_boxes(); append_button(); append_title();});;
       }
 
 
         function append_title() {
           website_screen.append("text")
+            .attr("font-weight", 900)
+            .style('fill', 'white')
             .attr("x", 0)
             .attr("y", 0)
             .text("Meine Webseite")
             .transition()
                   .duration(1000)
-                  .attr("x", box.width/10)
+                  .attr("x", box.width/100 * 10)
                   .attr("y", box.height/100 * 15)
                   .on("end", function() {append_boxes(); append_button();});
         }
